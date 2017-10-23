@@ -6,7 +6,7 @@ module.exports = {
     library: 'ezpromise',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'lib'),
-    filename: 'promisify.js'
+    filename: 'ezpromise.js'
   },
   module: {
     rules: [
