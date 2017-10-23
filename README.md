@@ -11,7 +11,7 @@ ezpromise(rmdir, './path/to/dir')
 Comes with built in support for currying, simply import `ezThunk` and you are ready to go. Pass the function you wish to convert into a promise first, with any arguments in the curried function.
 
 ```
-import { ezThunk } from 'promisifier'
+import { ezThunk } from 'ez-promise'
 
 const removeDir = ezThunk(rmdir)
 
@@ -49,7 +49,7 @@ Now, let's convert our `copyFile` function so that it instead returns a promise:
 
 ```
 import ncp from 'ncp'
-import ezpromise from 'promisifier'
+import ezpromise from 'ez-promise'
 
 // Convert ncp into a promise
 const copyFile = ({ from, to }) => ezpromise(ncp, from, to)
