@@ -1,5 +1,5 @@
 # EZ Promise
-An extremely lightweight way to convert error-first Node.js style callbacks into promises.
+A lightweight way to convert error-first Node.js style callbacks into promises.
 
 Simply take a function that follows the Node.js callback convention, pass it to ezpromise and pass any arguments afterwards.
 
