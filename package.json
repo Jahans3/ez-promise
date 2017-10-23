@@ -1,0 +1,26 @@
+{
+  "name": "simple-promisify",
+  "version": "0.0.1",
+  "description": "An extremely lightweight way to promisify callback-based error-first functions",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jahans3/simple-promisify.git"
+  },
+  "keywords": [
+    "promisify",
+    "simple",
+    "promise",
+    "callback",
+    "error-first"
+  ],
+  "author": "Josh Jahans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jahans3/simple-promisify/issues"
+  },
+  "homepage": "https://github.com/Jahans3/simple-promisify#readme"
+}
