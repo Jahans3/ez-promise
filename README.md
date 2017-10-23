@@ -1,10 +1,10 @@
 # EZ Promise
 An extremely lightweight way to promisify error-first Node.js style callbacks.
 
-Simply take a function that follows the Node.js callback convention, pass it to promisify, and pass any arguments afterwards. The promise is called immediately, simply wrap in a function if you wish to call later:
+Simply take a function that follows the Node.js callback convention, pass it to promisify, and pass any arguments afterwards.
 
 ```
-const removeDir = ({ dir }) => promisify(rmdir, dir)
+promisify(rmdir, './path/to/dir')
 ```
 
 #### Partial application / Currying / Thunks
