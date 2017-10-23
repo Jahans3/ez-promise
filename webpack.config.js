@@ -3,6 +3,8 @@ const path = require('path')
 module.exports = {
   entry: './src/index.js',
   output: {
+    library: 'ezpromise',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'lib'),
     filename: 'promisify.js'
   },
