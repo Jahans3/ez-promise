@@ -65,4 +65,5 @@ async function multipleTasks () {
 ```
 
 ### Dependencies
-None!
+
+The only dependency is a `Promise` polyfill!
