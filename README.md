@@ -1,9 +1,3 @@
-# todo
-
-* Bundle as module
-* Promise polyfill
-* Tests
-
 # Simple Promisify
 
 An extremely lightweight way to promisify error-first Node.js style callbacks.
