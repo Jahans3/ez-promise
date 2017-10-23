@@ -8,10 +8,14 @@ const removeDir = ({ dir }) => promisify(rmdir, dir)
 ```
 
 #### Partial application / Currying / Thunks
-Comes with built in support for currying, simply import `promisifyThunk` and you are ready to go:
+Comes with built in support for currying, simply import `promisifyThunk` and you are ready to go. Pass the function you wish to convert into a promise first, with any arguments in the curried function.
 
 ```
-import { promisifyThunk } from '
+import { promisifyThunk } from 'promisifier'
+
+const removeDir = promisifyThunk(rmdir)
+
+removeDir('./path/to/dir').then(() => { console.log('Success!') })
 ```
 
 ## Batteries Included
