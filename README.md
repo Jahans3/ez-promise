@@ -1,28 +1,26 @@
 # EZ Promise
-An extremely lightweight way to promisify error-first Node.js style callbacks.
+An extremely lightweight way to convert error-first Node.js style callbacks into promises.
 
-Simply take a function that follows the Node.js callback convention, pass it to promisify, and pass any arguments afterwards.
+Simply take a function that follows the Node.js callback convention, pass it to ezpromise and pass any arguments afterwards.
 
 ```
-promisify(rmdir, './path/to/dir')
+ezpromise(rmdir, './path/to/dir')
 ```
 
 #### Partial application / Currying / Thunks
-Comes with built in support for currying, simply import `promisifyThunk` and you are ready to go. Pass the function you wish to convert into a promise first, with any arguments in the curried function.
+Comes with built in support for currying, simply import `ezThunk` and you are ready to go. Pass the function you wish to convert into a promise first, with any arguments in the curried function.
 
 ```
-import { promisifyThunk } from 'promisifier'
+import { ezThunk } from 'promisifier'
 
-const removeDir = promisifyThunk(rmdir)
+const removeDir = ezThunk(rmdir)
 
 removeDir('./path/to/dir').then(() => { console.log('Success!') })
 ```
 
 ## Batteries Included
 
-This library comes with everything required to run.
-
-If no `window.Promise` is detected, a polyfill is automatically added.
+This library comes with everything required to run. If no `window.Promise` is detected, a polyfill is automatically added.
 
 ### Example
 We have an environment script that takes an environment config object from a set of available configs and dumps it into and environment folder inside your source code.
@@ -51,10 +49,10 @@ Now, let's convert our `copyFile` function so that it instead returns a promise:
 
 ```
 import ncp from 'ncp'
-import promisify from 'promisifier'
+import ezpromise from 'promisifier'
 
 // Convert ncp into a promise
-const copyFile = ({ from, to }) => promisify(ncp, from, to)
+const copyFile = ({ from, to }) => ezpromise(ncp, from, to)
 ```
 
 Once this is done, we can use the promise however we prefer:
@@ -69,8 +67,8 @@ copyFile({ from: './env/production.js', to: './src/env.js' })
 Async/await:
 ```
 async function multipleTasks () {
-    // ...
     const result = await copyFile({ to: './env/production.js', to: './src/env.js' })
+    // ...
 }
 ```
 
