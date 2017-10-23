@@ -1,5 +1,5 @@
 {
-  "name": "simple-promisify",
+  "name": "promisifier",
   "version": "0.0.1",
   "description": "An extremely lightweight way to promisify callback-based error-first functions",
   "main": "lib/promisify.js",

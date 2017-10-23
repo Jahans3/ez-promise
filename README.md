@@ -1,5 +1,4 @@
-# Simple Promisify
-
+# Promisifier
 An extremely lightweight way to promisify error-first Node.js style callbacks.
 
 Simply take a function that follows the Node.js callback convention, pass it to promisify, and pass any arguments afterwards. The promise is called immediately, simply wrap in a function if you wish to call later:
@@ -7,6 +6,19 @@ Simply take a function that follows the Node.js callback convention, pass it to 
 ```
 const removeDir = ({ dir }) => promisify(rmdir, dir)
 ```
+
+#### Partial application / Currying / Thunks
+Comes with built in support for currying, simply import `promisifyThunk` and you are ready to go:
+
+```
+import { promisifyThunk } from '
+```
+
+## Batteries Included
+
+This library comes with everything required to run.
+
+If no `window.Promise` is detected, a polyfill is automatically added.
 
 ### Example
 We have an environment script that takes an environment config object from a set of available configs and dumps it into and environment folder inside your source code.
@@ -35,7 +47,7 @@ Now, let's convert our `copyFile` function so that it instead returns a promise:
 
 ```
 import ncp from 'ncp'
-import promisify from 'simple-promisify'
+import promisify from 'promisifier'
 
 // Convert ncp into a promise
 const copyFile = ({ from, to }) => promisify(ncp, from, to)
