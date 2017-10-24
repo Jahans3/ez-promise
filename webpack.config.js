@@ -5,6 +5,7 @@ module.exports = {
   output: {
     library: 'ez-promise',
     libraryTarget: 'umd',
+    umdNamedDefine: true,
     path: path.resolve(__dirname, 'lib'),
     filename: 'ezpromise.js'
   },
@@ -16,7 +17,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env'],
             plugins: ['transform-es2015-parameters']
           }
         }
