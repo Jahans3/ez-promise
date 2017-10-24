@@ -25,7 +25,7 @@ This library comes with everything required to run. If no `window.Promise` is de
 ### `import/require`
 
 ```
-const { default: ezpromise } = require('ez-promise')
+const ezpromise = require('ez-promise').default
 import ezpromise from 'ez-promise'
 ```
 
