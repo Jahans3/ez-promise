@@ -1,13 +1,13 @@
 import './polyfill'
 
-module.exports = (fn, ...args) => {
+export default (fn, ...args) => {
   return new Promise((resolve, reject) => fn(...args, (e, ...cbArgs) => {
     if (e) reject(e, ...cbArgs)
     else resolve(...cbArgs)
   }))
 }
 
-module.exports.ezThunk = fn => (...args) => {
+export const ezThunk = fn => (...args) => {
   return new Promise((resolve, reject) => fn(...args, (e, ...cbArgs) => {
     if (e) reject(e, ...cbArgs)
     else resolve(...cbArgs)
