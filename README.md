@@ -20,17 +20,20 @@ removeDir('./path/to/dir').then(() => { console.log('Success!') })
 
 ### Batteries Included
 
-This library comes with everything required to run. If no `window.Promise` is detected, a polyfill is automatically added.
+The library comes with everything required to run. If no `window.Promise` is detected, a polyfill is automatically added.
 
 ### `import/require`
 
 ```
 const ezpromise = require('ez-promise').default
 import ezpromise from 'ez-promise'
+
+const { ezThunk } = require('ez-promise')
+import { ezThunk } from 'ez-promise'
 ```
 
 ### Example
-We have an environment script that takes an environment config object from a set of available configs and dumps it into and environment folder inside your source code.
+We have an environment script that takes an environment config object from a set of available configs and dumps it into an environment folder inside our source code.
 
 Libraries like `fs`, `ncp`, and `rmdir` all make heavy use of callbacks, and since they follow the [error-first callback convention](https://nodejs.org/api/errors.html#errors_node_js_style_callbacks) (AKA Node.js-style callbacks), we can easily convert them into promises.
 
@@ -58,11 +61,19 @@ Now, let's convert our `copyFile` function so that it instead returns a promise:
 import ncp from 'ncp'
 import ezpromise from 'ez-promise'
 
-// Convert ncp into a promise
 const copyFile = ({ from, to }) => ezpromise(ncp, from, to)
 ```
 
-Once this is done, we can use the promise however we prefer:
+Or if you prefer to use the curried version:
+
+```
+import ncp from 'ncp'
+import { ezThunk } from 'ez-promise'
+
+const copyFile = ezThunk(ncp)
+```
+
+That's it! Now we are free to use our newly-converted promises anyway we like:
 
 Chaining promise methods:
 ```
@@ -77,6 +88,12 @@ async function multipleTasks () {
     const result = await copyFile({ to: './env/production.js', to: './src/env.js' })
     // ...
 }
+```
+
+Note that when currying, the arguments will be in the original format of the function we are converting into a promise:
+
+```
+copyFile('./env/production.js', './src/env.js')
 ```
 
 ### Dependencies
