@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   entry: './src/index.js',
   output: {
-    library: 'ezpromise',
+    library: 'ez-promise',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'lib'),
     filename: 'ezpromise.js'
