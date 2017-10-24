@@ -1,8 +1,8 @@
 {
   "name": "ez-promise",
-  "version": "0.0.311",
+  "version": "0.0.312",
   "description": "An extremely lightweight way to promisify callback-based error-first functions",
-  "main": "lib/ezpromise.js",
+  "main": "./lib/ez-promise.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
