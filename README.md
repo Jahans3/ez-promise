@@ -18,9 +18,16 @@ const removeDir = ezThunk(rmdir)
 removeDir('./path/to/dir').then(() => { console.log('Success!') })
 ```
 
-## Batteries Included
+### Batteries Included
 
 This library comes with everything required to run. If no `window.Promise` is detected, a polyfill is automatically added.
+
+### `import/require`
+
+```
+const { default: ezpromise } = require('ez-promise')
+import ezpromise from 'ez-promise'
+```
 
 ### Example
 We have an environment script that takes an environment config object from a set of available configs and dumps it into and environment folder inside your source code.
