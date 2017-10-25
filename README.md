@@ -7,7 +7,7 @@ Simply take a function that follows the Node.js callback convention, pass it to 
 ezpromise(rmdir, './path/to/dir')
 ```
 
-#### Partial application / Currying / Thunks
+### Partial application / Currying / Thunks
 Comes with built in support for currying, simply import `ezThunk` and you are ready to go. Pass the function you wish to convert into a promise first, with any arguments in the curried function.
 
 ```
