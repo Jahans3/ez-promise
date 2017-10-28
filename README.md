@@ -32,6 +32,15 @@ const { ezThunk } = require('ez-promise')
 import { ezThunk } from 'ez-promise'
 ```
 
+### Resolving Multiple Values
+Since a promise can only resolve a single value, if a function's callback has an arity of 3 or greater an array containing the values is returned.
+```
+ezpromise(someAsyncFn, './some/path')
+    .then(([arg1, arg2, ...rest]) => {
+        // ...
+    })
+```
+
 ### Example
 We have an environment script that takes an environment config object from a set of available configs and dumps it into an environment folder inside our source code.
 
