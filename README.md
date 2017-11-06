@@ -44,7 +44,7 @@ ezpromise(someAsyncFn, './some/path')
 ### Example
 We have an environment script that takes an environment config object from a set of available configs and dumps it into an environment folder inside our source code.
 
-Libraries like `fs`, `ncp`, and `rmdir` all make heavy use of callbacks, and since they follow the [error-first callback convention](https://nodejs.org/api/errors.html#errors_node_js_style_callbacks) (AKA Node.js-style callbacks), we can easily convert them into promises.
+Libraries like `fs`, `ncp`, and `rmdir` all make use of async callbacks, and since they follow the [error-first callback convention](https://nodejs.org/api/errors.html#errors_node_js_style_callbacks) (AKA Node.js-style callbacks), we can easily convert them into promises.
 
 Let's start with the callback pattern:
 
@@ -64,7 +64,7 @@ function copyFile (from, to) {
 copyFile('./env/production.js', './src/env.js')
 ```
 
-Now, let's convert our `copyFile` function so that it instead returns a promise:
+Now, let's convert our `copyFile` function into a promise:
 
 ```
 import ncp from 'ncp'
@@ -82,7 +82,7 @@ import { ezThunk } from 'ez-promise'
 const copyFile = ezThunk(ncp)
 ```
 
-That's it! Now we are free to use our newly-converted promises anyway we like:
+That's it! Now we are free to use our newly-converted promises anyway we like.
 
 Chaining promise methods:
 ```

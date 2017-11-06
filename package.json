@@ -1,6 +1,6 @@
 {
   "name": "ez-promise",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "An extremely lightweight way to promisify callback-based error-first functions",
   "main": "./lib/ez-promise.js",
   "scripts": {
