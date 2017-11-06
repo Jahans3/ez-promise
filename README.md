@@ -99,10 +99,13 @@ async function multipleTasks () {
 }
 ```
 
-Note that when currying, the arguments will be in the original format of the function we are converting into a promise:
+Note that when currying, the arguments will be in the original format of the function we are converting into a promise, but with the callback at the end omitted:
 
 ```
 copyFile('./env/production.js', './src/env.js')
+ncp('./env/production.js', './src/env.js', () => {
+    // ...
+})
 ```
 
 ### Dependencies
